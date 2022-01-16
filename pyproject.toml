@@ -32,7 +32,7 @@ generate = [
 ]
 
 sources = [
-    "src/module.cpp",
+    "photonvision/src/module.cpp",
 ]
 
 generation_data = "gen"
