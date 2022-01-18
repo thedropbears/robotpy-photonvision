@@ -131,7 +131,7 @@ from robotpy_sphinx.sidebar import generate_sidebar
 
 generate_sidebar(
     globals(),
-    "pwfusion",
+    "photonvision",
     "https://raw.githubusercontent.com/robotpy/docs-sidebar/master/sidebar.toml",
 )
 
