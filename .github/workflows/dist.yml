@@ -10,9 +10,6 @@ on:
 jobs:
   ci:
     uses: robotpy/build-actions/.github/workflows/package-ci.yml@v2022
-    with:
-      matrix_os: >-
-        ["windows-2019", "ubuntu-18.04", "macos-11"]
     secrets:
       SSH_USER: ${{ secrets.SSH_USER }}
       SSH_KEY: ${{ secrets.SSH_KEY }}
