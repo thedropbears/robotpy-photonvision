@@ -7,11 +7,12 @@ classes:
       PhotonTrackedTarget:
         overloads:
           "":
-          double, double, double, double, frc::Transform2d&:
+          double, double, double, double, frc::Transform2d&, wpi::SmallVector<std::pair<double, double>, 4>:
       GetYaw:
       GetPitch:
       GetArea:
       GetSkew:
+      GetCorners:
       GetCameraRelativePose:
       operator==:
       operator!=:

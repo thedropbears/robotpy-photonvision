@@ -11,7 +11,7 @@ base_package = "photonvision"
 artifact_id = "PhotonLib-cpp"
 group_id = "org.photonvision"
 repo_url = "https://maven.photonvision.org/repository/internal/"
-version = "v2022.1.4"
+version = "v2022.1.5"
 
 libs = ["Photon"]
 
@@ -20,22 +20,22 @@ name = "photonvision"
 
 depends = ["wpilibc", "wpimath_geometry", "wpimath_cpp", "ntcore", "wpiHal", "wpiutil"]
 
-generate = [
-    { Packet =               "photonlib/Packet.h" },
-    { PhotonCamera =         "photonlib/PhotonCamera.h" },
-    { PhotonPipelineResult = "photonlib/PhotonPipelineResult.h" },
-    { PhotonTrackedTarget =  "photonlib/PhotonTrackedTarget.h" },
-    { PhotonUtils =          "photonlib/PhotonUtils.h" },
-    { SimPhotonCamera =      "photonlib/SimPhotonCamera.h" },
-    { SimVisionSystem =      "photonlib/SimVisionSystem.h" },
-    { SimVisionTarget =      "photonlib/SimVisionTarget.h" },
-]
-
 sources = [
     "photonvision/src/module.cpp",
 ]
 
 generation_data = "gen"
+
+[tool.robotpy-build.wrappers."photonvision".autogen_headers]
+# photonlib
+Packet = "photonlib/Packet.h"
+PhotonCamera = "photonlib/PhotonCamera.h"
+PhotonPipelineResult = "photonlib/PhotonPipelineResult.h"
+PhotonTrackedTarget = "photonlib/PhotonTrackedTarget.h"
+PhotonUtils = "photonlib/PhotonUtils.h"
+SimPhotonCamera = "photonlib/SimPhotonCamera.h"
+SimVisionSystem = "photonlib/SimVisionSystem.h"
+SimVisionTarget = "photonlib/SimVisionTarget.h"
 
 [tool.robotpy-build.metadata]
 name = "robotpy-photonvision"
