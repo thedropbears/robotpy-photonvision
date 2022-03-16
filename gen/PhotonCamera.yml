@@ -8,7 +8,7 @@ classes:
     methods:
       PhotonCamera:
         overloads:
-          std::shared_ptr<nt::NetworkTable>:
+          std::shared_ptr<nt::NetworkTableInstance>, std::string&:
           std::string&:
       GetLatestResult:
       SetDriverMode:
@@ -20,3 +20,4 @@ classes:
       GetLEDMode:
       SetLEDMode:
       HasTargets:
+      SetVersionCheckEnabled:

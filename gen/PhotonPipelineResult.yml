@@ -7,7 +7,7 @@ classes:
       PhotonPipelineResult:
         overloads:
           "":
-          units::second_t, wpi::ArrayRef<PhotonTrackedTarget>:
+          units::second_t, wpi::span<const PhotonTrackedTarget>:
       GetBestTarget:
       GetLatency:
       HasTargets:
