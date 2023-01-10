@@ -7,7 +7,7 @@ classes:
     methods:
       SimPhotonCamera:
         overloads:
-          std::shared_ptr<nt::NetworkTableInstance>, std::string&:
+          nt::NetworkTableInstance, std::string&:
           std::string&:
       SubmitProcessedFrame:
         overloads:

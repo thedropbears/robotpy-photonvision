@@ -13,13 +13,16 @@ classes:
       rawBytesEntry:
       driverModeEntry:
       inputSaveImgEntry:
+      inputSaveImgSubscriber:
       outputSaveImgEntry:
+      outputSaveImgSubscriber:
       pipelineIndexEntry:
       ledModeEntry:
       versionEntry:
       driverModeSubscriber:
       pipelineIndexSubscriber:
       ledModeSubscriber:
+      m_topicNameSubscriber:
       path:
       m_cameraName:
         ignore: true
@@ -27,7 +30,7 @@ classes:
     methods:
       PhotonCamera:
         overloads:
-          std::shared_ptr<nt::NetworkTableInstance>, std::string_view:
+          nt::NetworkTableInstance, std::string_view:
           std::string_view:
       GetLatestResult:
       SetDriverMode:

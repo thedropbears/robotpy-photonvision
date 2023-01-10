@@ -15,7 +15,8 @@ classes:
       GetArea:
       GetSkew:
       GetFiducialId:
-      GetCorners:
+      GetMinAreaRectCorners:
+      GetDetectedCorners:
       GetPoseAmbiguity:
       GetBestCameraToTarget:
       GetAlternateCameraToTarget:
