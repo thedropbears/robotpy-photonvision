@@ -1,4 +1,6 @@
 ---
+extra_includes:
+  - frc/apriltag/AprilTagFieldLayout.h
 
 enums:
   PoseStrategy:
