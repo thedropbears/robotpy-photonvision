@@ -12,12 +12,11 @@ classes:
       - map_value_type = std::pair<std::shared_ptr<PhotonCamera>, frc::Transform3d>
     methods:
       RobotPoseEstimator:
-      Update:
-      SetPoseStrategy:
-        ignore: true  # missing
-      SetReferencePose:
-      SetLastPose:
+      getFieldLayout:
       SetCameras:
       GetPoseStrategy:
-      GetLastPose:
+      SetPoseStrategy:
       GetReferencePose:
+      SetReferencePose:
+      SetLastPose:
+      Update:
