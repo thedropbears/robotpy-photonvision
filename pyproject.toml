@@ -1,10 +1,10 @@
 [build-system]
 requires = [
     "robotpy-build<2024,>=2023.0.0",
-    "pyntcore~=2023.1.1",
-    "robotpy-apriltag~=2023.1.1",
-    "robotpy-wpimath~=2023.1.1",
-    "wpilib~=2023.1.1",
+    "pyntcore~=2023.2.1",
+    "robotpy-apriltag~=2023.2.1",
+    "robotpy-wpimath~=2023.2.1",
+    "wpilib~=2023.2.1",
 ]
 
 [tool.robotpy-build.metadata]
@@ -15,10 +15,10 @@ author_email = "robotpy@googlegroups.com"
 url = "https://github.com/robotpy/robotpy-photonvision"
 license = "MIT"
 install_requires = [
-    "pyntcore<2024.0.0,>=2023.1.1",
-    "robotpy-apriltag<2024.0.0,>=2023.1.1",
-    "robotpy-wpimath<2024.0.0,>=2023.1.1",
-    "wpilib<2024.0.0,>=2023.1.1",
+    "pyntcore<2024.0.0,>=2023.2.1",
+    "robotpy-apriltag<2024.0.0,>=2023.2.1",
+    "robotpy-wpimath<2024.0.0,>=2023.2.1",
+    "wpilib<2024.0.0,>=2023.2.1",
 ]
 
 [tool.robotpy-build]
@@ -28,7 +28,7 @@ base_package = "photonvision"
 artifact_id = "PhotonLib-cpp"
 group_id = "org.photonvision"
 repo_url = "https://maven.photonvision.org/repository/internal"
-version = "v2023.1.2"
+version = "v2023.2.1"
 
 libs = ["Photon"]
 
@@ -57,6 +57,7 @@ generation_data = "gen"
 Packet = "photonlib/Packet.h"
 PhotonCamera = "photonlib/PhotonCamera.h"
 PhotonPipelineResult = "photonlib/PhotonPipelineResult.h"
+#PhotonPoseEstimator = "photonlib/PhotonPoseEstimator.h"
 PhotonTargetSortMode = "photonlib/PhotonTargetSortMode.h"
 PhotonTrackedTarget = "photonlib/PhotonTrackedTarget.h"
 PhotonUtils = "photonlib/PhotonUtils.h"

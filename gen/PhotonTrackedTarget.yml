@@ -8,7 +8,8 @@ classes:
         overloads:
           "":
           ? double, double, double, double, int, frc::Transform3d&, frc::Transform3d&,
-            double, wpi::SmallVector<std::pair<double, double>, 4>
+            double, wpi::SmallVector<std::pair<double, double>, 4>, std::vector<std::pair<double,
+            double>>
           :
       GetYaw:
       GetPitch:
