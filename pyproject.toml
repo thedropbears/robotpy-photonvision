@@ -27,8 +27,8 @@ base_package = "photonvision"
 [tool.robotpy-build.wrappers."photonvision".maven_lib_download]
 artifact_id = "PhotonLib-cpp"
 group_id = "org.photonvision"
-repo_url = "https://maven.photonvision.org/repository/snapshots"
-version = "dev-v2023.3.0-8-g3edc8750"
+repo_url = "https://maven.photonvision.org/repository/internal"
+version = "v2023.4.0"
 
 use_sources = true
 sources = [

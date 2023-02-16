@@ -1,4 +1,4 @@
-From a4d022e535b47989d0ac0710966644e49046267a Mon Sep 17 00:00:00 2001
+From e7750b61b3e9d8635e708df6cbc85084dadca56a Mon Sep 17 00:00:00 2001
 From: David Vo <auscompgeek@users.noreply.github.com>
 Date: Sat, 11 Feb 2023 17:50:54 +1100
 Subject: [PATCH] Yeet PhotonCamera from PhotonPoseEstimator
@@ -8,7 +8,7 @@ Subject: [PATCH] Yeet PhotonCamera from PhotonPoseEstimator
  1 file changed, 1 insertion(+), 12 deletions(-)
 
 diff --git a/photonlib/PhotonPoseEstimator.h b/photonlib/PhotonPoseEstimator.h
-index 367043d73b20..a878e887ae5a 100644
+index 5d76a851e6cd..79a75f0fc5cc 100644
 --- a/photonlib/PhotonPoseEstimator.h
 +++ b/photonlib/PhotonPoseEstimator.h
 @@ -28,11 +28,10 @@
@@ -20,10 +20,10 @@ index 367043d73b20..a878e887ae5a 100644
 -#include "photonlib/PhotonCamera.h"
  #include "photonlib/PhotonPipelineResult.h"
  
- namespace photonlib {
- enum PoseStrategy : int {
-   LOWEST_AMBIGUITY,
-@@ -69,16 +68,15 @@ class PhotonPoseEstimator {
+ namespace cv {
+ class Mat;
+ }  // namespace cv
+@@ -80,16 +79,15 @@ class PhotonPoseEstimator {
     * at (1.0,2.0,3.0) </code> }
     *
     * @param aprilTags A AprilTagFieldLayout linking AprilTag IDs to Pose3ds with
@@ -41,7 +41,7 @@ index 367043d73b20..a878e887ae5a 100644
    /**
     * Get the AprilTagFieldLayout being used by the PositionEstimator.
     *
-@@ -141,28 +139,19 @@ class PhotonPoseEstimator {
+@@ -168,29 +166,20 @@ class PhotonPoseEstimator {
     *
     * @param lastPose the lastPose to set
     */
@@ -63,6 +63,7 @@ index 367043d73b20..a878e887ae5a 100644
   private:
    frc::AprilTagFieldLayout aprilTags;
    PoseStrategy strategy;
+   PoseStrategy multiTagFallbackStrategy = LOWEST_AMBIGUITY;
  
 -  PhotonCamera camera;
    frc::Transform3d m_robotToCamera;

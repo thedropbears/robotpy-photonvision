@@ -1,4 +1,4 @@
-From a4d022e535b47989d0ac0710966644e49046267a Mon Sep 17 00:00:00 2001
+From e7750b61b3e9d8635e708df6cbc85084dadca56a Mon Sep 17 00:00:00 2001
 From: David Vo <auscompgeek@users.noreply.github.com>
 Date: Sat, 11 Feb 2023 17:50:54 +1100
 Subject: [PATCH] Yeet PhotonCamera from PhotonPoseEstimator
@@ -8,13 +8,13 @@ Subject: [PATCH] Yeet PhotonCamera from PhotonPoseEstimator
  1 file changed, 1 insertion(+), 8 deletions(-)
 
 diff --git a/photonlib/PhotonPoseEstimator.cpp b/photonlib/PhotonPoseEstimator.cpp
-index 16ef7661112c..cf052f5847a4 100644
+index 5b7ff54853d2..d7076832cfe1 100644
 --- a/photonlib/PhotonPoseEstimator.cpp
 +++ b/photonlib/PhotonPoseEstimator.cpp
-@@ -36,30 +36,23 @@
- #include <frc/geometry/Pose3d.h>
- #include <frc/geometry/Rotation3d.h>
- #include <frc/geometry/Transform3d.h>
+@@ -41,11 +41,10 @@
+ #include <opencv2/core/mat.hpp>
+ #include <opencv2/core/types.hpp>
+ #include <units/math.h>
  #include <units/time.h>
  
 -#include "photonlib/PhotonCamera.h"
@@ -22,6 +22,12 @@ index 16ef7661112c..cf052f5847a4 100644
  #include "photonlib/PhotonTrackedTarget.h"
  
  namespace photonlib {
+ 
+@@ -57,15 +56,14 @@ frc::Pose3d ToPose3d(const cv::Mat& tvec, const cv::Mat& rvec);
+ cv::Point3d TagCornerToObjectPoint(units::meter_t cornerX,
+                                    units::meter_t cornerY, frc::Pose3d tagPose);
+ }  // namespace detail
+ 
  PhotonPoseEstimator::PhotonPoseEstimator(frc::AprilTagFieldLayout tags,
 -                                         PoseStrategy strat, PhotonCamera&& cam,
 +                                         PoseStrategy strat,
@@ -31,7 +37,14 @@ index 16ef7661112c..cf052f5847a4 100644
 -      camera(std::move(cam)),
        m_robotToCamera(robotToCamera),
        lastPose(frc::Pose3d()),
-       referencePose(frc::Pose3d()) {}
+       referencePose(frc::Pose3d()),
+       poseCacheTimestamp(-1_s) {}
+ 
+@@ -81,15 +79,10 @@ void PhotonPoseEstimator::SetMultiTagFallbackStrategy(PoseStrategy strategy) {
+     InvalidatePoseCache();
+   }
+   multiTagFallbackStrategy = strategy;
+ }
  
 -std::optional<EstimatedRobotPose> PhotonPoseEstimator::Update() {
 -  auto result = camera.GetLatestResult();
@@ -40,9 +53,9 @@ index 16ef7661112c..cf052f5847a4 100644
 -
  std::optional<EstimatedRobotPose> PhotonPoseEstimator::Update(
      const PhotonPipelineResult& result) {
-   if (!result.HasTargets()) {
+   // Time in the past -- give up, since the following if expects times > 0
+   if (result.GetTimestamp() < 0_s) {
      return std::nullopt;
-   }
 -- 
 2.39.1
 
