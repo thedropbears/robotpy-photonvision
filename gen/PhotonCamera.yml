@@ -21,6 +21,8 @@ classes:
       ledModePub:
       ledModeSub:
       versionEntry:
+      cameraIntrinsicsSubscriber:
+      cameraDistortionSubscriber:
       driverModeSubscriber:
       driverModePublisher:
       pipelineIndexSubscriber:
@@ -45,5 +47,9 @@ classes:
       GetLEDMode:
       SetLEDMode:
       GetCameraName:
+      GetCameraMatrix:
+        ignore: true  # TODO: cv::Mat
+      GetDistCoeffs:
+        ignore: true  # TODO: cv::Mat
       HasTargets:
       SetVersionCheckEnabled:
