@@ -48,6 +48,8 @@ classes:
       SetLEDMode:
       GetCameraName:
       GetCameraMatrix:
+        ignore: true  # TODO: cv::Mat
       GetDistCoeffs:
+        ignore: true  # TODO: cv::Mat
       HasTargets:
       SetVersionCheckEnabled:
