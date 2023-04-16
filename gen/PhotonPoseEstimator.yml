@@ -7,6 +7,7 @@ classes:
     attributes:
       estimatedPose:
       timestamp:
+      targetsUsed:
     methods:
       EstimatedRobotPose:
         param_override:
@@ -14,6 +15,8 @@ classes:
             name: estimatedPose
           time_:
             name: timestamp
+          targets:
+            name: targetsUsed
   PhotonPoseEstimator:
     methods:
       PhotonPoseEstimator:
@@ -24,10 +27,14 @@ classes:
       GetFieldLayout:
       GetPoseStrategy:
       SetPoseStrategy:
+      SetMultiTagFallbackStrategy:
       GetReferencePose:
       SetReferencePose:
       GetRobotToCameraTransform:
       SetRobotToCameraTransform:
       SetLastPose:
       Update:
+        overloads:
+          "":
+          PhotonPipelineResult&:
       GetCamera:

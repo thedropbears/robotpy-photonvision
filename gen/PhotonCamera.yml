@@ -21,6 +21,8 @@ classes:
       ledModePub:
       ledModeSub:
       versionEntry:
+      cameraIntrinsicsSubscriber:
+      cameraDistortionSubscriber:
       driverModeSubscriber:
       driverModePublisher:
       pipelineIndexSubscriber:
@@ -45,5 +47,7 @@ classes:
       GetLEDMode:
       SetLEDMode:
       GetCameraName:
+      GetCameraMatrix:
+      GetDistCoeffs:
       HasTargets:
       SetVersionCheckEnabled:
