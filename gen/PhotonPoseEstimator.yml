@@ -17,6 +17,10 @@ classes:
   PhotonPoseEstimator:
     methods:
       PhotonPoseEstimator:
+        overloads:
+          frc::AprilTagFieldLayout, photonlib::PoseStrategy, PhotonCamera&&, frc::Transform3d:
+            ignore: true
+          frc::AprilTagFieldLayout, photonlib::PoseStrategy, std::unique_ptr<PhotonCamera>, frc::Transform3d:
       GetFieldLayout:
       GetPoseStrategy:
       SetPoseStrategy:

@@ -1,61 +1,33 @@
-From e7750b61b3e9d8635e708df6cbc85084dadca56a Mon Sep 17 00:00:00 2001
+From 7b7e69a6b43bdbc21db7b72491cc0c2544864027 Mon Sep 17 00:00:00 2001
 From: David Vo <auscompgeek@users.noreply.github.com>
-Date: Sat, 11 Feb 2023 17:50:54 +1100
-Subject: [PATCH] Yeet PhotonCamera from PhotonPoseEstimator
+Date: Sun, 16 Apr 2023 13:50:48 +1000
+Subject: [PATCH] PhotonPoseEstimator: Add constructor taking unique_ptr
 
 ---
- photonlib/PhotonPoseEstimator.cpp | 9 +--------
- 1 file changed, 1 insertion(+), 8 deletions(-)
+ photonlib/PhotonPoseEstimator.cpp | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
 diff --git a/photonlib/PhotonPoseEstimator.cpp b/photonlib/PhotonPoseEstimator.cpp
-index 5b7ff54853d2..d7076832cfe1 100644
+index 5b7ff54853d2..f328e9aad874 100644
 --- a/photonlib/PhotonPoseEstimator.cpp
 +++ b/photonlib/PhotonPoseEstimator.cpp
-@@ -41,11 +41,10 @@
- #include <opencv2/core/mat.hpp>
- #include <opencv2/core/types.hpp>
- #include <units/math.h>
- #include <units/time.h>
- 
--#include "photonlib/PhotonCamera.h"
- #include "photonlib/PhotonPipelineResult.h"
- #include "photonlib/PhotonTrackedTarget.h"
- 
- namespace photonlib {
- 
-@@ -57,15 +56,14 @@ frc::Pose3d ToPose3d(const cv::Mat& tvec, const cv::Mat& rvec);
- cv::Point3d TagCornerToObjectPoint(units::meter_t cornerX,
-                                    units::meter_t cornerY, frc::Pose3d tagPose);
- }  // namespace detail
- 
- PhotonPoseEstimator::PhotonPoseEstimator(frc::AprilTagFieldLayout tags,
--                                         PoseStrategy strat, PhotonCamera&& cam,
-+                                         PoseStrategy strat,
-                                          frc::Transform3d robotToCamera)
-     : aprilTags(tags),
-       strategy(strat),
--      camera(std::move(cam)),
+@@ -67,10 +67,16 @@ PhotonPoseEstimator::PhotonPoseEstimator(frc::AprilTagFieldLayout tags,
        m_robotToCamera(robotToCamera),
        lastPose(frc::Pose3d()),
        referencePose(frc::Pose3d()),
        poseCacheTimestamp(-1_s) {}
  
-@@ -81,15 +79,10 @@ void PhotonPoseEstimator::SetMultiTagFallbackStrategy(PoseStrategy strategy) {
-     InvalidatePoseCache();
-   }
-   multiTagFallbackStrategy = strategy;
- }
- 
--std::optional<EstimatedRobotPose> PhotonPoseEstimator::Update() {
--  auto result = camera.GetLatestResult();
--  return Update(result);
--}
--
- std::optional<EstimatedRobotPose> PhotonPoseEstimator::Update(
-     const PhotonPipelineResult& result) {
-   // Time in the past -- give up, since the following if expects times > 0
-   if (result.GetTimestamp() < 0_s) {
-     return std::nullopt;
++PhotonPoseEstimator::PhotonPoseEstimator(frc::AprilTagFieldLayout tags,
++                                         PoseStrategy strat,
++                                         std::unique_ptr<PhotonCamera> cam,
++                                         frc::Transform3d robotToCamera)
++    : PhotonPoseEstimator(tags, strat, std::move(*cam), robotToCamera) {}
++
+ void PhotonPoseEstimator::SetMultiTagFallbackStrategy(PoseStrategy strategy) {
+   if (strategy == MULTI_TAG_PNP) {
+     FRC_ReportError(
+         frc::warn::Warning,
+         "Fallback cannot be set to MULTI_TAG_PNP! Setting to lowest ambiguity",
 -- 
 2.39.1
 
