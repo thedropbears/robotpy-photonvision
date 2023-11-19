@@ -1,10 +1,9 @@
 [build-system]
 requires = [
-    "robotpy-build<2024,>=2023.0.0",
-    "pyntcore~=2023.4.1",
-    "robotpy-apriltag~=2023.4.1",
-    "robotpy-wpimath~=2023.4.1",
-    "wpilib~=2023.4.1",
+    "robotpy-build<2025.0.0,~=2024.0.0b2",
+    "robotpy-wpiutil<2025.0.0,>=2024.0.0b3.post1",
+    "robotpy-wpimath<2025.0.0,>=2024.0.0b3.post1",
+    "wpilib<2025.0.0,>=2024.0.0b3.post1",
 ]
 
 [tool.robotpy-build.metadata]
@@ -15,10 +14,9 @@ author_email = "robotpy@googlegroups.com"
 url = "https://github.com/robotpy/robotpy-photonvision"
 license = "MIT"
 install_requires = [
-    "pyntcore<2024.0.0,>=2023.4.1",
-    "robotpy-apriltag<2024.0.0,>=2023.4.1",
-    "robotpy-wpimath<2024.0.0,>=2023.4.1",
-    "wpilib<2024.0.0,>=2023.4.1",
+    "robotpy-wpiutil<2025.0.0,>=2024.0.0b3.post1",
+    "robotpy-wpimath<2025.0.0,>=2024.0.0b3.post1",
+    "wpilib<2025.0.0,>=2024.0.0b3.post1",
 ]
 
 [tool.robotpy-build]
@@ -26,17 +24,17 @@ base_package = "photonvision"
 
 [tool.robotpy-build.static_libs."photonvision-opencv".maven_lib_download]
 artifact_id = "opencv-cpp"
-group_id = "edu.wpi.first.thirdparty.frc2023.opencv"
+group_id = "edu.wpi.first.thirdparty.frc2024.opencv"
 repo_url = "https://frcmaven.wpi.edu/artifactory/release"
-version = "4.6.0-4"
+version = "4.8.0-2"
 
-libs = ["opencv460"]
+libs = ["opencv480"]
 
 [tool.robotpy-build.wrappers."photonvision".maven_lib_download]
 artifact_id = "PhotonLib-cpp"
 group_id = "org.photonvision"
 repo_url = "https://maven.photonvision.org/repository/internal"
-version = "v2023.4.2"
+version = "v2024.1.1-beta-3.2"
 
 use_sources = true
 sources = [
@@ -44,27 +42,19 @@ sources = [
     "photonlib/PhotonPipelineResult.cpp",
     "photonlib/PhotonPoseEstimator.cpp",
     "photonlib/PhotonTrackedTarget.cpp",
-    "photonlib/RobotPoseEstimator.cpp",
+    "photonlib/MultiTargetPNPResult.cpp",
 ]
-
-[[tool.robotpy-build.wrappers."photonvision".maven_lib_download.patches]]
-patch = "photonvision/src/sources.patch"
-
-[[tool.robotpy-build.wrappers."photonvision".maven_lib_download.header_patches]]
-patch = "photonvision/src/headers.patch"
 
 [tool.robotpy-build.wrappers."photonvision"]
 name = "photonvision"
 
 depends = [
-    "photonvision-opencv",
-    "apriltag",
     "wpilibc",
-    "wpimath_geometry",
+    "wpilib_core",
     "wpimath_cpp",
-    "ntcore",
     "wpiHal",
     "wpiutil",
+    "wpimath_geometry",
 ]
 
 sources = [
@@ -82,7 +72,7 @@ PhotonPoseEstimator = "photonlib/PhotonPoseEstimator.h"
 PhotonTargetSortMode = "photonlib/PhotonTargetSortMode.h"
 PhotonTrackedTarget = "photonlib/PhotonTrackedTarget.h"
 PhotonUtils = "photonlib/PhotonUtils.h"
-RobotPoseEstimator = "photonlib/RobotPoseEstimator.h"
 SimPhotonCamera = "photonlib/SimPhotonCamera.h"
 SimVisionSystem = "photonlib/SimVisionSystem.h"
 SimVisionTarget = "photonlib/SimVisionTarget.h"
+MultiTargetPNPResult = "photonlib/MultiTargetPNPResult.h"
