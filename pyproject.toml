@@ -27,21 +27,20 @@ artifact_id = "opencv-cpp"
 group_id = "edu.wpi.first.thirdparty.frc2024.opencv"
 repo_url = "https://frcmaven.wpi.edu/artifactory/release"
 version = "4.8.0-2"
-
 libs = ["opencv480"]
+
+[tool.robotpy-build.wrappstatic_libsers."photonvision-targeting".maven_lib_download]
+artifact_id = "photontargeting-cpp"
+group_id = "org.photonvision"
+repo_url = "https://maven.photonvision.org/repository/internal"
+version = "v2024.3.1"
+libs = ["photontargeting"]
 
 [tool.robotpy-build.wrappers."photonvision".maven_lib_download]
 artifact_id = "photonlib-cpp"
 group_id = "org.photonvision"
 repo_url = "https://maven.photonvision.org/repository/internal"
 version = "v2024.3.1"
-
-[tool.robotpy-build.wrappers."photonvision-targeting".maven_lib_download]
-artifact_id = "photontargeting-cpp"
-group_id = "org.photonvision"
-repo_url = "https://maven.photonvision.org/repository/internal"
-version = "v2024.3.1"
-
 use_sources = true
 sources = [
     "photonlib/PhotonCamera.cpp",
