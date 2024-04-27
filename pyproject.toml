@@ -8,6 +8,7 @@ license = "MIT"
 install_requires = [
     "robotpy-wpiutil<2025.0.0,>=2024.3.2",
     "robotpy-wpimath<2025.0.0,>=2024.3.2",
+    "robotpy-apriltag<2025.0.0,>=2024.3.2",
     "wpilib<2025.0.0,>=2024.3.2",
 ]
 
@@ -16,6 +17,7 @@ requires = [
     "robotpy-build<2025.0.0,~=2024.0.0",
     "robotpy-wpiutil<2025.0.0,~=2024.3.2",
     "robotpy-wpimath<2025.0.0,~=2024.3.2",
+    "robotpy-apriltag<2025.0.0,~=2024.3.2",
     "wpilib<2025.0.0,~=2024.3.2",
 ]
 
@@ -27,28 +29,24 @@ artifact_id = "opencv-cpp"
 group_id = "edu.wpi.first.thirdparty.frc2024.opencv"
 repo_url = "https://frcmaven.wpi.edu/artifactory/release"
 version = "4.8.0-2"
+
 libs = ["opencv480"]
 
-[tool.robotpy-build.wrappstatic_libsers."photonvision-targeting".maven_lib_download]
+[tool.robotpy-build.wrappers."photontargeting".maven_lib_download]
 artifact_id = "photontargeting-cpp"
 group_id = "org.photonvision"
 repo_url = "https://maven.photonvision.org/repository/internal"
 version = "v2024.3.1"
 libs = ["photontargeting"]
 
+
 [tool.robotpy-build.wrappers."photonvision".maven_lib_download]
 artifact_id = "photonlib-cpp"
 group_id = "org.photonvision"
 repo_url = "https://maven.photonvision.org/repository/internal"
 version = "v2024.3.1"
-use_sources = true
-sources = [
-    "photonlib/PhotonCamera.cpp",
-    "photonlib/PhotonPipelineResult.cpp",
-    "photonlib/PhotonPoseEstimator.cpp",
-    "photonlib/PhotonTrackedTarget.cpp",
-    "photonlib/MultiTargetPNPResult.cpp",
-]
+libs = ["photonlib"]
+
 
 
 [tool.robotpy-build.wrappers."photonvision"]
@@ -61,6 +59,39 @@ depends = [
     "wpiHal",
     "wpiutil",
     "wpimath_geometry",
+    "robotpy-apriltag",
+]
+
+sources = [
+    "photonvision/src/module.cpp",
+]
+
+extra_includes = [
+    "photontargeting/include",
+]
+
+generation_data = "gen"
+
+[tool.robotpy-build.wrappers."photonvision".autogen_headers]
+# photonlib
+PhotonVersion        = "PhotonVersion.h"
+PhotonCamera         = "photon/PhotonCamera.h"
+PhotonPoseEstimator  = "photon/PhotonPoseEstimator.h"
+PhotonTargetSortMode = "photon/PhotonTargetSortMode.h"
+PhotonUtils          = "photon/PhotonUtils.h"
+
+
+[tool.robotpy-build.wrappers."photontargeting"]
+name = "photontargeting"
+
+depends = [
+    "wpilibc",
+    "wpilib_core",
+    "wpimath_cpp",
+    "wpiHal",
+    "wpiutil",
+    "wpimath_geometry",
+    "robotpy-apriltag",
 ]
 
 sources = [
@@ -69,10 +100,12 @@ sources = [
 
 generation_data = "gen"
 
-[tool.robotpy-build.wrappers."photonvision".autogen_headers]
-# photonlib
-PhotonVersion = "PhotonVersion.h"
-PhotonCamera = "photon/PhotonCamera.h"
-PhotonPoseEstimator = "photon/PhotonPoseEstimator.h"
-PhotonTargetSortMode = "photon/PhotonTargetSortMode.h"
-PhotonUtils = "photon/PhotonUtils.h"
+
+[tool.robotpy-build.wrappers."photontargeting".autogen_headers]
+# photontargeting
+PNPResult            = "photon/targeting/PNPResult.h"
+PhotonTrackedTarget  = "photon/targeting/PhotonTrackedTarget.h"
+PhotonPipelineResult = "photon/targeting/PhotonPipelineResult.h"
+MultiTargetPNPResult = "photon/targeting/MultiTargetPNPResult.h"
+
+

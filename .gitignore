@@ -10,12 +10,12 @@ __pycache__
 build
 dist
 
-/photonvision/version.py
-/photonvision/_init_photonvision.py
-/photonvision/include
-/photonvision/lib
-/photonvision/rpy-include
-/photonvision/pkgcfg.py
+/photon*/version.py
+/photon*/_init_photonvision.py
+/photon*/include
+/photon*/lib
+/photon*/rpy-include
+/photon*/pkgcfg.py
 
 *.dylib
 *.dll
