@@ -2,13 +2,23 @@
 
 classes:
   PhotonTrackedTarget:
-    shared_ptr: true
+    attributes:
+      yaw:
+      pitch:
+      area:
+      skew:
+      fiducialId:
+      bestCameraToTarget:
+      altCameraToTarget:
+      poseAmbiguity:
+      minAreaRectCorners:
+      detectedCorners:
     methods:
       PhotonTrackedTarget:
         overloads:
           "":
-          ? double, double, double, double, int, frc::Transform3d&, frc::Transform3d&,
-            double, wpi::SmallVector<std::pair<double, double>, 4>, std::vector<std::pair<double,
+          ? double, double, double, double, int, const frc::Transform3d&, const frc::Transform3d&,
+            double, const wpi::SmallVector<std::pair<double, double>, 4>, const std::vector<std::pair<double,
             double>>
           :
       GetYaw:
@@ -21,6 +31,4 @@ classes:
       GetPoseAmbiguity:
       GetBestCameraToTarget:
       GetAlternateCameraToTarget:
-      GetCameraRelativePose:
       operator==:
-      operator!=:

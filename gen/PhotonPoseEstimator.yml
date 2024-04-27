@@ -8,22 +8,15 @@ classes:
       estimatedPose:
       timestamp:
       targetsUsed:
+      strategy:
     methods:
       EstimatedRobotPose:
-        param_override:
-          pose_:
-            name: estimatedPose
-          time_:
-            name: timestamp
-          targets:
-            name: targetsUsed
   PhotonPoseEstimator:
     methods:
       PhotonPoseEstimator:
         overloads:
-          frc::AprilTagFieldLayout, photonlib::PoseStrategy, PhotonCamera&&, frc::Transform3d:
-            ignore: true
-          frc::AprilTagFieldLayout, photonlib::PoseStrategy, std::unique_ptr<PhotonCamera>, frc::Transform3d:
+          frc::AprilTagFieldLayout, PoseStrategy, PhotonCamera&&, frc::Transform3d:
+          frc::AprilTagFieldLayout, PoseStrategy, frc::Transform3d:
       GetFieldLayout:
       GetPoseStrategy:
       SetPoseStrategy:
@@ -36,5 +29,6 @@ classes:
       Update:
         overloads:
           "":
-          PhotonPipelineResult&:
+          const PhotonPipelineResult&:
+          const PhotonPipelineResult&, std::optional<cv::Mat>, std::optional<cv::Mat>:
       GetCamera:

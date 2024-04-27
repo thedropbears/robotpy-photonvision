@@ -2,17 +2,23 @@
 
 classes:
   PhotonPipelineResult:
-    shared_ptr: true
+    attributes:
+      latency:
+      timestamp:
+      targets:
+      multitagResult:
+      HAS_WARNED:
     methods:
       PhotonPipelineResult:
         overloads:
           "":
-          units::second_t, std::span<const PhotonTrackedTarget>:
+          units::millisecond_t, std::span<const PhotonTrackedTarget>:
+          units::millisecond_t, std::span<const PhotonTrackedTarget>, MultiTargetPNPResult:
       GetBestTarget:
       GetLatency:
       GetTimestamp:
+      MultiTagResult:
       SetTimestamp:
       HasTargets:
       GetTargets:
       operator==:
-      operator!=:

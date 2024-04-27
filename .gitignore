@@ -11,7 +11,7 @@ build
 dist
 
 /photon*/version.py
-/photon*/_init_photonvision.py
+/photon*/_init_photon*.py
 /photon*/include
 /photon*/lib
 /photon*/rpy-include

@@ -1,0 +1,13 @@
+---
+
+classes:
+  PNPResult:
+    attributes:
+      isPresent:
+      best:
+      bestReprojErr:
+      alt:
+      altReprojErr:
+      ambiguity:
+    methods:
+      operator==:

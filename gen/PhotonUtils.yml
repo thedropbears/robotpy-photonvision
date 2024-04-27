@@ -2,15 +2,14 @@
 
 classes:
   PhotonUtils:
-    shared_ptr: true
     methods:
       CalculateDistanceToTarget:
       EstimateCameraToTargetTranslation:
       EstimateFieldToRobot:
         overloads:
-          ? units::meter_t, units::meter_t, units::radian_t, units::radian_t, frc::Rotation2d&,
-            frc::Rotation2d&, frc::Pose2d&, frc::Transform2d&
+          ? units::meter_t, units::meter_t, units::radian_t, units::radian_t, const
+            frc::Rotation2d&, const frc::Rotation2d&, const frc::Pose2d&, const frc::Transform2d&
           :
-          frc::Transform2d&, frc::Pose2d&, frc::Transform2d&:
+          const frc::Transform2d&, const frc::Pose2d&, const frc::Transform2d&:
       EstimateCameraToTarget:
       EstimateFieldToCamera:
