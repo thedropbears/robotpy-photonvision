@@ -59,7 +59,7 @@ depends = [
     "wpiHal",
     "wpiutil",
     "wpimath_geometry",
-    "robotpy-apriltag",
+    "apriltag",
 ]
 
 sources = [
@@ -91,7 +91,7 @@ depends = [
     "wpiHal",
     "wpiutil",
     "wpimath_geometry",
-    "robotpy-apriltag",
+    "apriltag",
 ]
 
 sources = [
