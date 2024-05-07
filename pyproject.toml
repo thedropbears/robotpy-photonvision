@@ -58,7 +58,6 @@ depends = [
     "apriltag",
     "photontargeting",
     "photonvision-opencv",
-
 ]
 
 
@@ -93,7 +92,7 @@ depends = [
 ]
 
 sources = [
-    "photonvision/src/module.cpp",
+    "photontargeting/src/module.cpp",
 ]
 
 generation_data = "gen"
