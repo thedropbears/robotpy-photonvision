@@ -78,8 +78,8 @@ PhotonUtils          = "photon/PhotonUtils.h"
 
 
 
-[tool.robotpy-build.wrappers."photontargeting"]
-name = "photontargeting"
+[tool.robotpy-build.wrappers."photonvision.photontargeting"]
+name = "photonvision.photontargeting"
 
 depends = [
     "wpilibc",
@@ -92,13 +92,13 @@ depends = [
 ]
 
 sources = [
-    "photontargeting/src/module.cpp",
+    "photonvision/photontargeting/src/module.cpp",
 ]
 
 generation_data = "gen"
 
 
-[tool.robotpy-build.wrappers."photontargeting".autogen_headers]
+[tool.robotpy-build.wrappers."photonvision.photontargeting".autogen_headers]
 # photontargeting
 PNPResult            = "photon/targeting/PNPResult.h"
 PhotonTrackedTarget  = "photon/targeting/PhotonTrackedTarget.h"
