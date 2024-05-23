@@ -24,11 +24,12 @@ requires = [
 [tool.robotpy-build]
 base_package = "photonvision"
 
-[tool.robotpy-build.static_libs."photonvision-opencv".maven_lib_download]
+[tool.robotpy-build.static_libs."opencv_cpp".maven_lib_download]
 artifact_id = "opencv-cpp"
 group_id = "edu.wpi.first.thirdparty.frc2024.opencv"
 repo_url = "https://frcmaven.wpi.edu/artifactory/release"
 version = "4.8.0-2"
+
 libs = ["opencv480"]
 
 [tool.robotpy-build.wrappers."photonvision".maven_lib_download]
@@ -56,7 +57,8 @@ depends = [
     "wpiutil",
     "wpimath_geometry",
     "apriltag",
-    "photonvision-opencv",
+    "opencv_cpp",
+    "photonvision_targeting",
 ]
 
 
@@ -90,6 +92,7 @@ depends = [
     "wpiutil",
     "wpimath_geometry",
     "apriltag",
+    "opencv_cpp",
 ]
 
 sources = [

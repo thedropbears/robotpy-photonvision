@@ -9,9 +9,6 @@ on:
     tags:
     - '*'
 
-env:
-  RPYBUILD_SKIP_PYI: 1
-
 jobs:
   ci:
     uses: robotpy/build-actions/.github/workflows/package-ci.yml@v2024
