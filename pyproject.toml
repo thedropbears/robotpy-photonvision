@@ -34,9 +34,12 @@ libs = ["opencv480"]
 [tool.robotpy-build.wrappers."photonvision".maven_lib_download]
 artifact_id = "photonlib-cpp"
 group_id = "org.photonvision"
-repo_url = "https://maven.photonvision.org/repository/snapshots"
-version = "dev-v2024.3.1-27-g64134ce9"
+repo_url = "https://maven.photonvision.org/repository/internal"
+version = "v2024.3.1"
 libs = ["photonlib"]
+
+[[tool.robotpy-build.wrappers."photonvision".maven_lib_download.header_patches]]
+patch = "photonvision/src/PhotonCamera.h.patch"
 
 [tool.robotpy-build.wrappers."photonvision"]
 name = "photonvision"
@@ -57,6 +60,7 @@ sources = [
     "photonvision/src/module.cpp",
 ]
 
+extra_includes = ["photonvision/targeting/include"]
 
 generation_data = "gen"
 
@@ -84,7 +88,7 @@ depends = [
 ]
 
 sources = [
-    "photonvision/photontargeting/src/module.cpp",
+    "photonvision/targeting/src/module.cpp",
 ]
 
 generation_data = "gen"
@@ -92,8 +96,8 @@ generation_data = "gen"
 [tool.robotpy-build.wrappers."photonvision.targeting".maven_lib_download]
 artifact_id = "photontargeting-cpp"
 group_id = "org.photonvision"
-repo_url = "https://maven.photonvision.org/repository/snapshots"
-version = "dev-v2024.3.1-27-g64134ce9"
+repo_url = "https://maven.photonvision.org/repository/internal"
+version = "v2024.3.1"
 libs = ["photontargeting"]
 
 
