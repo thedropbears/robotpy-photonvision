@@ -44,6 +44,18 @@ repo_url = "https://frcmaven.wpi.edu/artifactory/release"
 version = "4.8.0-1"
 libs = ["opencv480"]
 
+[tool.robotpy-build.wrappers."photonvision._opencv"]
+name = "opencv"
+[tool.robotpy-build.wrappers."photonvision._opencv".maven_lib_download]
+artifact_id = "opencv-cpp"
+group_id = "edu.wpi.first.thirdparty.frc2024.opencv"
+repo_url = "https://frcmaven.wpi.edu/artifactory/release"
+version = "4.8.0-1"
+libs = [
+    "opencv_core480",
+    "opencv_calib3d480",
+]
+
 
 [tool.robotpy-build.wrappers."photonvision"]
 name = "photonvision"
