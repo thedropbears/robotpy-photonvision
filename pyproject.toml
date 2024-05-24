@@ -8,6 +8,7 @@ license = "MIT"
 install_requires = [
     "robotpy-wpiutil<2025.0.0,>=2024.3.2",
     "robotpy-wpimath<2025.0.0,>=2024.3.2",
+    "robotpy-cscore<2025.0.0,>=2024.3.2",
     "robotpy-apriltag<2025.0.0,>=2024.3.2",
     "wpilib<2025.0.0,>=2024.3.2",
 ]
@@ -17,6 +18,7 @@ requires = [
     "robotpy-build<2025.0.0,~=2024.0.0",
     "robotpy-wpiutil<2025.0.0,~=2024.3.2",
     "robotpy-wpimath<2025.0.0,~=2024.3.2",
+    "robotpy-cscore<2025.0.0,~=2024.3.2",
     "robotpy-apriltag<2025.0.0,~=2024.3.2",
     "wpilib<2025.0.0,~=2024.3.2",
 ]
@@ -29,8 +31,8 @@ artifact_id = "opencv-cpp"
 group_id = "edu.wpi.first.thirdparty.frc2024.opencv"
 repo_url = "https://frcmaven.wpi.edu/artifactory/release"
 version = "4.8.0-2"
-
 libs = ["opencv480"]
+
 
 [tool.robotpy-build.wrappers."photonvision".maven_lib_download]
 artifact_id = "photonlib-cpp"
@@ -38,9 +40,6 @@ group_id = "org.photonvision"
 repo_url = "https://maven.photonvision.org/repository/internal"
 version = "v2024.3.1"
 libs = ["photonlib"]
-
-[[tool.robotpy-build.wrappers."photonvision".maven_lib_download.header_patches]]
-patch = "photonvision/src/PhotonCamera.h.patch"
 
 [[tool.robotpy-build.wrappers."photonvision".maven_lib_download.header_patches]]
 patch = "photonvision/src/PhotonPoseEstimator.h.patch"
@@ -57,18 +56,26 @@ depends = [
     "wpiutil",
     "wpimath_geometry",
     "apriltag",
-    "opencv_cpp",
     "photonvision_targeting",
+    "cscore",
+    "opencv_cpp",
 ]
 
 
 sources = [
     "photonvision/src/module.cpp",
+    "photonvision/cvnp/cvnp.cpp",
+    "photonvision/cvnp/cvnp_synonyms.cpp",
+
 ]
 
 extra_includes = ["photonvision/targeting/include"]
 
 generation_data = "gen"
+
+#[[tool.robotpy-build.wrappers."photonvision".type_casters]]
+#header = "cvnp/cvnp.h"
+#types = ["cv::Mat"]
 
 [tool.robotpy-build.wrappers."photonvision".autogen_headers]
 # photonlib
@@ -92,7 +99,8 @@ depends = [
     "wpiutil",
     "wpimath_geometry",
     "apriltag",
-    "opencv_cpp",
+    "cscore",
+
 ]
 
 sources = [
