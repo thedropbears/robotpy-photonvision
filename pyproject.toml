@@ -26,13 +26,6 @@ requires = [
 [tool.robotpy-build]
 base_package = "photonvision"
 
-[tool.robotpy-build.static_libs."opencv_cpp".maven_lib_download]
-artifact_id = "opencv-cpp"
-group_id = "edu.wpi.first.thirdparty.frc2024.opencv"
-repo_url = "https://frcmaven.wpi.edu/artifactory/release"
-version = "4.8.0-2"
-libs = ["opencv480"]
-
 
 [tool.robotpy-build.wrappers."photonvision".maven_lib_download]
 artifact_id = "photonlib-cpp"
@@ -67,15 +60,10 @@ sources = [
 ]
 
 extra_includes = [
-"photonvision/targeting/include",
-"cscore/cvnp",
+    "photonvision/targeting/include",
 ]
 
 generation_data = "gen"
-
-[[tool.robotpy-build.wrappers."photonvision".type_casters]]
-header = "cvnp/cvnp.h"
-types = ["cv::Mat"]
 
 [tool.robotpy-build.wrappers."photonvision".autogen_headers]
 # photonlib
