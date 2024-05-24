@@ -52,8 +52,8 @@ group_id = "edu.wpi.first.thirdparty.frc2024.opencv"
 repo_url = "https://frcmaven.wpi.edu/artifactory/release"
 version = "4.8.0-1"
 libs = [
-    "opencv_core480",
-    "opencv_calib3d480",
+    "opencv_core",
+    "opencv_calib3d",
 ]
 
 
