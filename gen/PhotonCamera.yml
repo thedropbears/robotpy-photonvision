@@ -1,8 +1,5 @@
 ---
 
-extra_includes:
-- cvnp/cvnp.h
-
 enums:
   LEDMode:
 classes:

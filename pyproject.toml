@@ -58,24 +58,24 @@ depends = [
     "apriltag",
     "photonvision_targeting",
     "cscore",
-    "opencv_cpp",
 ]
 
 
 sources = [
     "photonvision/src/module.cpp",
-    "photonvision/cvnp/cvnp.cpp",
-    "photonvision/cvnp/cvnp_synonyms.cpp",
 
 ]
 
-extra_includes = ["photonvision/targeting/include"]
+extra_includes = [
+"photonvision/targeting/include",
+"cscore/cvnp",
+]
 
 generation_data = "gen"
 
-#[[tool.robotpy-build.wrappers."photonvision".type_casters]]
-#header = "cvnp/cvnp.h"
-#types = ["cv::Mat"]
+[[tool.robotpy-build.wrappers."photonvision".type_casters]]
+header = "cvnp/cvnp.h"
+types = ["cv::Mat"]
 
 [tool.robotpy-build.wrappers."photonvision".autogen_headers]
 # photonlib

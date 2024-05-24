@@ -1,8 +1,5 @@
 ---
 
-extra_includes:
-- cvnp/cvnp.h
-
 enums:
   PoseStrategy:
 classes:
