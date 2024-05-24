@@ -56,7 +56,6 @@ depends = [
 
 sources = [
     "photonvision/src/module.cpp",
-
 ]
 
 extra_includes = [
@@ -73,6 +72,10 @@ PhotonPoseEstimator  = "photon/PhotonPoseEstimator.h"
 PhotonTargetSortMode = "photon/PhotonTargetSortMode.h"
 PhotonUtils          = "photon/PhotonUtils.h"
 
+
+[[tool.robotpy-build.wrappers."photonvision".type_casters]]
+header = "cvnp/cvnp.h"
+types = ["cv::Mat"]
 
 
 [tool.robotpy-build.wrappers."photonvision.targeting"]
