@@ -38,7 +38,7 @@ libs = ["photonlib"]
 patch = "photonvision/src/PhotonPoseEstimator.h.patch"
 
 [tool.robotpy-build.static_libs."opencv_cpp".maven_lib_download]
-artifact_id = "opencv-cpp"
+artifact_id = "opencv480"
 group_id = "edu.wpi.first.thirdparty.frc2024.opencv"
 repo_url = "https://frcmaven.wpi.edu/artifactory/release"
 version = "4.8.0-1"
