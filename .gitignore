@@ -16,6 +16,7 @@ dist
 /photonvision/lib
 /photonvision/rpy-include
 /photonvision/pkgcfg.py
+/photonvision/_opencv
 
 /photonvision/targeting/version.py
 /photonvision/targeting/_init_photon*.py
