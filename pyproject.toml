@@ -32,10 +32,18 @@ artifact_id = "photonlib-cpp"
 group_id = "org.photonvision"
 repo_url = "https://maven.photonvision.org/repository/internal"
 version = "v2024.3.1"
-libs = ["photonlib"]
+# libs = ["photonlib"]
+use_sources = true
+sources = [
+    "photon/PhotonCamera.cpp",
+    "photon/PhotonPoseEstimator.cpp",
+]
 
 [[tool.robotpy-build.wrappers."photonvision".maven_lib_download.header_patches]]
 patch = "photonvision/src/PhotonPoseEstimator.h.patch"
+
+[[tool.robotpy-build.wrappers."photonvision".maven_lib_download.patches]]
+patch = "photonvision/src/PhotonPoseEstimator.cpp.patch"
 
 [tool.robotpy-build.static_libs."opencv_cpp".maven_lib_download]
 artifact_id = "opencv-cpp"
@@ -43,7 +51,6 @@ group_id = "edu.wpi.first.thirdparty.frc2024.opencv"
 repo_url = "https://frcmaven.wpi.edu/artifactory/release"
 version = "4.8.0-2"
 libs = ["opencv480"]
-
 
 [tool.robotpy-build.wrappers."photonvision"]
 name = "photonvision"
@@ -58,7 +65,6 @@ depends = [
     "wpimath_geometry",
     "apriltag",
     "photonvision_targeting",
-    "cscore",
     "opencv_cpp",
 ]
 
@@ -70,7 +76,7 @@ sources = [
 ]
 
 extra_includes = [
-"photonvision/targeting/include",
+    "photonvision/targeting/include",
 ]
 
 
@@ -102,8 +108,6 @@ depends = [
     "wpiutil",
     "wpimath_geometry",
     "apriltag",
-    "cscore",
-
 ]
 
 sources = [
