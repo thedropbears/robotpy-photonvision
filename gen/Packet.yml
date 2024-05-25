@@ -1,0 +1,14 @@
+---
+
+classes:
+  Packet:
+    methods:
+      Packet:
+        overloads:
+          "":
+          std::vector<uint8_t>:
+      Clear:
+      GetData:
+      GetDataSize:
+      operator==:
+      operator!=:
