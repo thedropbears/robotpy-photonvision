@@ -132,5 +132,8 @@ PNPResult            = "photon/targeting/PNPResult.h"
 PhotonTrackedTarget  = "photon/targeting/PhotonTrackedTarget.h"
 PhotonPipelineResult = "photon/targeting/PhotonPipelineResult.h"
 MultiTargetPNPResult = "photon/targeting/MultiTargetPNPResult.h"
-
+Packet               = "photon/dataflow/structures/PhotonVersion.h"
+SimPhotonCamera      = "photon/simulation/SimPhotonCamera.h"
+SimVisionSystem      = "photon/simulation/SimVisionSystem.h"
+SimVisionTarget      = "photon/simulation/SimVisionTarget.h"
 
