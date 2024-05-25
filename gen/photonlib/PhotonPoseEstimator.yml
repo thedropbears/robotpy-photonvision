@@ -18,7 +18,6 @@ classes:
     methods:
       PhotonPoseEstimator:
         overloads:
-          frc::AprilTagFieldLayout, PoseStrategy, PhotonCamera&&, frc::Transform3d:
           frc::AprilTagFieldLayout, PoseStrategy, frc::Transform3d:
       GetFieldLayout:
       GetPoseStrategy:

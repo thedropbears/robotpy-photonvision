@@ -81,7 +81,7 @@ extra_includes = [
 ]
 
 
-generation_data = "gen"
+generation_data = "gen/photonlib"
 
 [tool.robotpy-build.wrappers."photonvision".autogen_headers]
 # photonlib
@@ -119,7 +119,7 @@ sources = [
     "photonvision/targeting/src/module.cpp",
 ]
 
-generation_data = "gen"
+generation_data = "gen/photontargeting"
 
 [tool.robotpy-build.wrappers."photonvision.targeting".maven_lib_download]
 artifact_id = "photontargeting-cpp"
@@ -127,6 +127,17 @@ group_id = "org.photonvision"
 repo_url = "https://maven.photonvision.org/repository/internal"
 version = "v2024.3.1"
 libs = ["photontargeting"]
+#use_sources = true
+#sources = [
+#    ./photon/targeting/MultiTargetPNPResult.cpp
+#    ./photon/targeting/PhotonPipelineResult.cpp
+#    ./photon/targeting/PhotonTrackedTarget.cpp
+#    ./photon/targeting/PNPResult.cpp
+#    ./photon/targeting/proto/MultiTargetPNPResultProto.cpp
+#    ./photon/targeting/proto/PhotonPipelineResultProto.cpp
+#    ./photon/targeting/proto/PhotonTrackedTargetProto.cpp
+#    ./photon/targeting/proto/PNPResultProto.cpp
+#]
 
 
 
