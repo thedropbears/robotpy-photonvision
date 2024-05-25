@@ -90,6 +90,10 @@ PhotonCamera         = "photon/PhotonCamera.h"
 PhotonPoseEstimator  = "photon/PhotonPoseEstimator.h"
 PhotonTargetSortMode = "photon/PhotonTargetSortMode.h"
 PhotonUtils          = "photon/PhotonUtils.h"
+Packet               = "photon/dataflow/structures/Packet.h"
+SimPhotonCamera      = "photon/simulation/SimPhotonCamera.h"
+SimVisionSystem      = "photon/simulation/SimVisionSystem.h"
+SimVisionTarget      = "photon/simulation/SimVisionTarget.h"
 
 
 [[tool.robotpy-build.wrappers."photonvision".type_casters]]
@@ -132,8 +136,4 @@ PNPResult            = "photon/targeting/PNPResult.h"
 PhotonTrackedTarget  = "photon/targeting/PhotonTrackedTarget.h"
 PhotonPipelineResult = "photon/targeting/PhotonPipelineResult.h"
 MultiTargetPNPResult = "photon/targeting/MultiTargetPNPResult.h"
-Packet               = "photon/dataflow/structures/Packet.h"
-SimPhotonCamera      = "photon/simulation/SimPhotonCamera.h"
-SimVisionSystem      = "photon/simulation/SimVisionSystem.h"
-SimVisionTarget      = "photon/simulation/SimVisionTarget.h"
 
