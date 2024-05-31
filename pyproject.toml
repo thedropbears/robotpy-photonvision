@@ -26,6 +26,61 @@ requires = [
 [tool.robotpy-build]
 base_package = "photonvision"
 
+# ======================== Begin photon-targeting stuff ========================
+
+[tool.robotpy-build.wrappers."photonvision.targeting"]
+name = "photonvision_targeting"
+
+depends = [
+    "wpilibc",
+    "wpilib_core",
+    "wpimath_cpp",
+    "wpiHal",
+    "ntcore",
+    "wpiutil",
+    "wpimath_geometry",
+    "apriltag",
+]
+
+sources = [
+    "photonvision/targeting/src/module.cpp",
+]
+
+extra_includes = [
+    "photonvision/targeting/include",
+]
+
+generation_data = "gen/photontargeting"
+
+[tool.robotpy-build.wrappers."photonvision.targeting".maven_lib_download]
+artifact_id = "photontargeting-cpp"
+group_id = "org.photonvision"
+repo_url = "https://maven.photonvision.org/snapshots"
+version = "dev-v2024.3.0-28-gf9c2a43b"
+#libs = ["photontargeting"]
+use_sources = true
+sources = [
+    "./photon.pb.cc",
+    "./photon/targeting/MultiTargetPNPResult.cpp",
+    "./photon/targeting/PhotonPipelineResult.cpp",
+    "./photon/targeting/PhotonTrackedTarget.cpp",
+    "./photon/targeting/PNPResult.cpp",
+    "./photon/targeting/proto/MultiTargetPNPResultProto.cpp",
+    "./photon/targeting/proto/PhotonPipelineResultProto.cpp",
+    "./photon/targeting/proto/PhotonTrackedTargetProto.cpp",
+    "./photon/targeting/proto/PNPResultProto.cpp",
+]
+
+
+[tool.robotpy-build.wrappers."photonvision.targeting".autogen_headers]
+# photontargeting
+Packet               = "photon/dataflow/structures/Packet.h"
+PNPResult            = "photon/targeting/PNPResult.h"
+PhotonTrackedTarget  = "photon/targeting/PhotonTrackedTarget.h"
+PhotonPipelineResult = "photon/targeting/PhotonPipelineResult.h"
+MultiTargetPNPResult = "photon/targeting/MultiTargetPNPResult.h"
+
+# ======================== Begin photonvision itself stuff ========================
 
 [tool.robotpy-build.wrappers."photonvision".maven_lib_download]
 artifact_id = "photonlib-cpp"
@@ -97,57 +152,3 @@ SimVisionTarget      = "photon/simulation/SimVisionTarget.h"
 [[tool.robotpy-build.wrappers."photonvision".type_casters]]
 header = "cvnp/cvnp.h"
 types = ["cv::Mat"]
-
-
-[tool.robotpy-build.wrappers."photonvision.targeting"]
-name = "photonvision_targeting"
-
-depends = [
-    "wpilibc",
-    "wpilib_core",
-    "wpimath_cpp",
-    "wpiHal",
-    "ntcore",
-    "wpiutil",
-    "wpimath_geometry",
-    "apriltag",
-]
-
-sources = [
-    "photonvision/targeting/src/module.cpp",
-]
-
-extra_includes = [
-    "photonvision/targeting/include",
-]
-
-generation_data = "gen/photontargeting"
-
-[tool.robotpy-build.wrappers."photonvision.targeting".maven_lib_download]
-artifact_id = "photontargeting-cpp"
-group_id = "org.photonvision"
-repo_url = "https://maven.photonvision.org/snapshots"
-version = "dev-v2024.3.0-28-gf9c2a43b"
-#libs = ["photontargeting"]
-use_sources = true
-sources = [
-    "./photon.pb.cc",
-    "./photon/targeting/MultiTargetPNPResult.cpp",
-    "./photon/targeting/PhotonPipelineResult.cpp",
-    "./photon/targeting/PhotonTrackedTarget.cpp",
-    "./photon/targeting/PNPResult.cpp",
-    "./photon/targeting/proto/MultiTargetPNPResultProto.cpp",
-    "./photon/targeting/proto/PhotonPipelineResultProto.cpp",
-    "./photon/targeting/proto/PhotonTrackedTargetProto.cpp",
-    "./photon/targeting/proto/PNPResultProto.cpp",
-]
-
-
-[tool.robotpy-build.wrappers."photonvision.targeting".autogen_headers]
-# photontargeting
-Packet               = "photon/dataflow/structures/Packet.h"
-PNPResult            = "photon/targeting/PNPResult.h"
-PhotonTrackedTarget  = "photon/targeting/PhotonTrackedTarget.h"
-PhotonPipelineResult = "photon/targeting/PhotonPipelineResult.h"
-MultiTargetPNPResult = "photon/targeting/MultiTargetPNPResult.h"
-
