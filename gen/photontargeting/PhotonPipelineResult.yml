@@ -8,12 +8,17 @@ classes:
       targets:
       multitagResult:
       HAS_WARNED:
+      sequenceID:
+      captureTimestamp:
+      publishTimestamp:
+      ntRecieveTimestamp:
     methods:
       PhotonPipelineResult:
         overloads:
           "":
           units::millisecond_t, std::span<const PhotonTrackedTarget>:
           units::millisecond_t, std::span<const PhotonTrackedTarget>, MultiTargetPNPResult:
+          int64_t, units::microsecond_t, units::microsecond_t, std::span<const PhotonTrackedTarget>, MultiTargetPNPResult:
       GetBestTarget:
       GetLatency:
       GetTimestamp:
@@ -22,3 +27,5 @@ classes:
       HasTargets:
       GetTargets:
       operator==:
+      SequenceID:
+      SetRecieveTimestamp:

@@ -1,6 +1,6 @@
 --- photon/PhotonPoseEstimator.cpp
 +++ photon/PhotonPoseEstimator.cpp
-@@ -76,21 +76,6 @@ PhotonPoseEstimator::PhotonPoseEstimator(frc::AprilTagFieldLayout tags,
+@@ -79,21 +79,6 @@ PhotonPoseEstimator::PhotonPoseEstimator(frc::AprilTagFieldLayout tags,
    InstanceCount++;
  }
 

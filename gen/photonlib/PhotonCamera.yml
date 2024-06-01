@@ -27,9 +27,9 @@ classes:
       driverModeSubscriber:
       driverModePublisher:
       ledModeSubscriber:
-      m_topicNameSubscriber:
+      topicNameSubscriber:
       path:
-      m_cameraName:
+      cameraName:
       packet:
     methods:
       PhotonCamera:

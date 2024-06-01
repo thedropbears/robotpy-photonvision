@@ -32,5 +32,5 @@ classes:
         overloads:
           "":
           const PhotonPipelineResult&:
-          const PhotonPipelineResult&, std::optional<cv::Mat>, std::optional<cv::Mat>:
+          const PhotonPipelineResult&, std::optional<PhotonCamera::CameraMatrix>, std::optional<PhotonCamera::DistortionMatrix>:
       GetCamera:
