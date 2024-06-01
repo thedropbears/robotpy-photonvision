@@ -1,0 +1,3 @@
+// huge hack, lol. the whole thing. packet.h is header-only, so...
+#include <cstring>
+#include "photon/dataflow/structures/Packet.h"
