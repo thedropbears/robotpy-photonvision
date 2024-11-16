@@ -1,0 +1,17 @@
+---
+classes:
+  TimeSyncClient:
+    methods:
+      TimeSyncClient:
+      GetOffset:
+      GetMetadata:
+      Start:
+      Stop:
+  TimeSyncClient::Metadata:
+    attributes:
+      offset:
+      rtt2:
+      pingsSent:
+      pingsReceived:
+      pongsReceived:
+      lastPongTime:
