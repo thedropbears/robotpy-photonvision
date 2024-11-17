@@ -1,4 +1,7 @@
 ---
+extra_includes:
+  - pybind11/chrono.h
+
 classes:
   TimeSyncClient:
     methods:

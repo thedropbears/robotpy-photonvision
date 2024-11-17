@@ -7,18 +7,20 @@ url = "https://github.com/robotpy/robotpy-photonvision"
 license = "MIT"
 install_requires = [
     "pyntcore<2026.0.0,>=2025.0.0b1",
+    "robotpy-wpimath<2026.0.0,>=2025.0.0b1",
     "robotpy-wpinet<2026.0.0,>=2025.0.0b1",
     "robotpy-wpiutil<2026.0.0,>=2025.0.0b1",
-    "wpilib<2026.0.0,>=2025.0.0b1",
+    #"wpilib<2026.0.0,>=2025.0.0b1",
 ]
 
 [build-system]
 requires = [
     "robotpy-build<2026.0.0,>=2025.0.0a1",
     "pyntcore<2026.0.0,>=2025.0.0b1",
+    "robotpy-wpimath<2026.0.0,>=2025.0.0b1",
     "robotpy-wpinet<2026.0.0,>=2025.0.0b1",
     "robotpy-wpiutil<2026.0.0,>=2025.0.0b1",
-    "wpilib<2026.0.0,>=2025.0.0b1",
+    #"wpilib<2026.0.0,>=2025.0.0b1",
 ]
 
 [tool.robotpy-build]
@@ -31,9 +33,8 @@ update_init = ["photonvision.targeting photonvision.targeting._photonvision_targ
 name = "photonvision_targeting"
 
 depends = [
-    "wpilibc",
-    "wpilib_core",
     "ntcore",
+    "wpimath",
     "wpinet",
     "wpiutil",
 ]
