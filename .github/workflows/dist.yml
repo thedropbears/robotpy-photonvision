@@ -5,13 +5,13 @@ on:
   pull_request:
   push:
     branches:
-    - main
+      - main
     tags:
-    - '*'
+      - "*"
 
 jobs:
   ci:
-    uses: robotpy/build-actions/.github/workflows/package-ci.yml@v2024
+    uses: robotpy/build-actions/.github/workflows/package-ci.yml@v2025
     with:
       artifactory_repo_type: vendor
     secrets:
