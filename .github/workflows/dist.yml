@@ -5,15 +5,19 @@ on:
   pull_request:
   push:
     branches:
-    - main
+      - main
     tags:
-    - '*'
+      - "*"
 
 jobs:
   ci:
-    uses: robotpy/build-actions/.github/workflows/package-ci.yml@v2024
+    uses: robotpy/build-actions/.github/workflows/package-ci.yml@v2025
     with:
       artifactory_repo_type: vendor
+      python_versions: >-
+        ["3.11", "3.12", "3.13"]
+      enable_rtd: false
+      enable_sphinx_check: false
     secrets:
       META_REPO_ACCESS_TOKEN: ${{ secrets.REPO_ACCESS_TOKEN }}
       RTD_TOKEN: ${{ secrets.RTD_TOKEN }}

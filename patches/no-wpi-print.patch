@@ -1,0 +1,26 @@
+diff --git a/photon-targeting/src/main/native/cpp/net/TimeSyncClient.cpp b/photon-targeting/src/main/native/cpp/net/TimeSyncClient.cpp
+index 0640c90b..0e47f5aa 100644
+--- a/photon-targeting/src/main/native/cpp/net/TimeSyncClient.cpp
++++ b/photon-targeting/src/main/native/cpp/net/TimeSyncClient.cpp
+@@ -31,7 +31,6 @@
+ 
+ #include <Eigen/Core>
+ #include <wpi/Logger.h>
+-#include <wpi/print.h>
+ #include <wpi/struct/Struct.h>
+ 
+ #include "ntcore_cpp.h"
+@@ -105,11 +104,11 @@ void wpi::tsp::TimeSyncClient::UdpCallback(uv::Buffer& buf, size_t nbytes,
+   //              pong.message_id, pong.client_time, pong.server_time);
+ 
+   if (pong.version != 1) {
+-    wpi::println("Bad version from server?");
++    fmt::println("Bad version from server?");
+     return;
+   }
+   if (pong.message_id != 2) {
+-    wpi::println("Bad message id from server?");
++    fmt::println("Bad message id from server?");
+     return;
+   }
+ 

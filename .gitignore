@@ -18,12 +18,12 @@ dist
 /photonvision/pkgcfg.py
 /photonvision/_opencv
 
-/photonvision/targeting/version.py
-/photonvision/targeting/_init_photon*.py
-/photonvision/targeting/include
-/photonvision/targeting/lib
-/photonvision/targeting/rpy-include
-/photonvision/targeting/pkgcfg.py
+/photonvision/timesync/version.py
+/photonvision/timesync/_init_photon*.py
+/photonvision/timesync/include
+/photonvision/timesync/lib
+/photonvision/timesync/rpy-include
+/photonvision/timesync/pkgcfg.py
 
 *.dylib
 *.dll
