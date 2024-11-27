@@ -51,7 +51,7 @@ generation_data = "gen/photontimesync"
 artifact_id = "photontargeting-cpp"
 group_id = "org.photonvision"
 repo_url = "https://maven.photonvision.org/snapshots"
-version = "dev-v2025.0.0-beta-3-11-g57621671"
+version = "dev-v2025.0.0-beta-5-4-g7e9da413"
 libs = ["photontargeting"]
 [[tool.robotpy-build.wrappers."photonvision.timesync".maven_lib_download.header_patches]]
 # TODO This patch takes out the default argument to the constructor. Put it back!!
