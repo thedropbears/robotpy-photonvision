@@ -10,7 +10,7 @@ install_requires = [
     "robotpy-wpimath<2026.0.0,>=2025.0.0b1",
     "robotpy-wpinet<2026.0.0,>=2025.0.0b1",
     "robotpy-wpiutil<2026.0.0,>=2025.0.0b1",
-    #"wpilib<2026.0.0,>=2025.0.0b1",
+    "wpilib<2026.0.0,>=2025.0.0b1",
 ]
 
 [build-system]
@@ -20,7 +20,7 @@ requires = [
     "robotpy-wpimath<2026.0.0,>=2025.0.0b1",
     "robotpy-wpinet<2026.0.0,>=2025.0.0b1",
     "robotpy-wpiutil<2026.0.0,>=2025.0.0b1",
-    #"wpilib<2026.0.0,>=2025.0.0b1",
+    "wpilib<2026.0.0,>=2025.0.0b1",
 ]
 
 [tool.robotpy-build]
